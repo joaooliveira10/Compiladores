@@ -1,0 +1,14 @@
+_Var cont
+_Var a
+_Var b
+leia cont
+escreva cont
+a =   69
+b =   26
+se  a > b entao
+escreva a
+senao
+enquanto
+faca   b + 1
+escreva b
+fimse

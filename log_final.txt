@@ -1,0 +1,13 @@
+Declaracao de variaveis realizada
+Empilhamento de endereco de retorno
+Comando leia executado
+Comando escreva executado
+Atribuicoes de variaveis executado
+Atribuicoes de variaveis executado
+Comando se executado
+Comando escreva executado
+Comando senao executado
+Comando `enquanto` executado
+Comando faca executado
+Comando escreva executado
+Fim do comando se 

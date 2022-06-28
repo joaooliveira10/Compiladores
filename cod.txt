@@ -1,0 +1,16 @@
+inicio;
+    int cont;
+    leia (cont);
+    escreva (cont);
+    int a;
+    a : (69);
+    int b;
+    b  : (26);
+    se (a > b) entao
+        escreva (a);
+        senao
+        escreva (b);
+    fimse;
+    
+fim;
+

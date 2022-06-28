@@ -1,0 +1,20 @@
+inicio;
+    int i : 0;
+    int n : 0;
+    int auxiliar : 0;
+    int a : 0;
+    int b : 1;
+
+    leia(n);
+    escreva(b);
+    n : n - 1;
+    
+    enquanto 
+        auxiliar : (a + b);
+        a : b;
+        b : auxiliar;
+        escreva(auxiliar);
+        i : i + 1;
+    faca (n > i);
+
+fim;

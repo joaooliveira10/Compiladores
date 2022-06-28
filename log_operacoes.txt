@@ -1,0 +1,5 @@
+Variavel 'cont' declarada
+Variavel 'a' declarada
+Variavel 'a' atualizada o valor para '(69)'
+Variavel 'b' declarada
+Variavel 'b' atualizada o valor para '(26)'

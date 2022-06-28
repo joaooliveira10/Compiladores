@@ -1,0 +1,256 @@
+inicio;
+escreva (t);
+leia (a);
+
+int a;
+a : 10;
+int b;
+b : (2-3+(2*5+3/2));
+
+se (5 = 2) entao
+leia (compilador);
+senao
+leia (testador);
+fimse;
+
+enquanto (a > b)
+faca (b+1);
+
+fim;
+
+
+
+numero:[0-9]
+letra:[A-Za-z]
+WS:[\ \n\t\r]
+
+:{WS}*
+//Aritmetica
+";"
+"("
+")"
+"+"
+"-"
+"*"
+"/"
+
+//Logica
+"="
+">"
+":"
+numero: {numero}+	//123...
+id: {letra} ({letra} | {numero})*//aA ou Aa1
+
+inicio= id: "inicio"	//start
+fim= id: "fim"	//fin
+int= id: "int"	//var int
+leia= id: "leia"	//scan
+escreva= id : "escreva"	//print
+
+//Condicional	
+se= id: "se"	//if
+entao= id: "entao"	//then
+senao= id: "senao"	//else
+fimse= id: "fimse"	//endif
+
+//Repetição
+enquanto= id: "enquanto" //while
+faca= id: "faca"	     //do
+
+<PROGRAMA>
+<LIST_CODIGO>
+<CODIGO>
+<VARIAVEIS>
+<ESCREVA>
+<LEIA>
+<CONDICIONAL>
+<REPETICAO>
+<LOGICA>
+<ATRIBUICAO>
+<VALOREXPRESSAO>
+<OPERADORESARITMETICO>
+<SE>
+<ENTAO>
+<SENAO>
+<FIMSE>
+<MISTO>
+<OPERADORESLOGICO>
+<FACA>
+<ENQUANTO>
+
+
+<PROGRAMA>::= inicio";" <LIST_CODIGO> fim";";
+<LIST_CODIGO>::= <CODIGO>";" <LIST_CODIGO> | î;
+
+<CODIGO>::= <VARIAVEIS>
+	|<ESCREVA>
+	|<LEIA>
+	|<CONDICIONAL>
+	|<REPETICAO>
+	|<OPERADORESARITMETICO>
+	|<LOGICA>;
+
+<ATRIBUICAO>::= ":" <VALOREXPRESSAO>  | numero | î;
+
+<VALOREXPRESSAO>::= numero <OPERADORESARITMETICO>
+	|id <OPERADORESARITMETICO>
+	|"("<VALOREXPRESSAO>")" <OPERADORESARITMETICO>;
+
+<OPERADORESARITMETICO>::= "+" <VALOREXPRESSAO>
+	|"-"<VALOREXPRESSAO>
+	|"*"<VALOREXPRESSAO>
+	|"/"<VALOREXPRESSAO>
+	|î;
+
+<VARIAVEIS>::= int id <ATRIBUICAO>;
+
+<ESCREVA>::= escreva "("id")";
+<LEIA>::= leia "("id")";
+
+<MISTO>::= id | numero;
+
+<OPERADORESLOGICO>::= "=" 
+	| ">" ;
+
+<LOGICA>::= <MISTO> <OPERADORESLOGICO> <MISTO>;
+
+<CONDICIONAL>::= <SE> <ENTAO> <SENAO> <FIMSE>;
+
+<SE>::= se"("<LOGICA>")";
+<ENTAO>::= entao <LIST_CODIGO>;
+<SENAO>::= senao <LIST_CODIGO> | î;
+<FIMSE>::= fimse;
+
+<FACA>::= faca "("<MISTO> <OPERADORESARITMETICO>")";
+<ENQUANTO>::= enquanto"("<LOGICA>")";
+
+
+
+<REPETICAO>::= <ENQUANTO> <FACA>;
+
+
+
+
+----------------------------------------------------------
+
+<PROGRAMA>::= inicio";" <LIST_CODIGO> fim";";
+<LIST_CODIGO>::= <CODIGO>";" <LIST_CODIGO> | î;
+
+<CODIGO>::= <VARIAVEIS>
+	|<ESCREVA>
+	|<LEIA>
+	|<CONDICIONAL>
+	|<REPETICAO>
+	|<OPERADORESARITMETICO>
+
+<ATRIBUICAO>::= ":" <VALOREXPRESSAO>  | numero | î;
+
+<VALOREXPRESSAO>::= numero <OPERADORESARITMETICO>
+	|id <OPERADORESARITMETICO>
+	|"("<VALOREXPRESSAO>")" <OPERADORESARITMETICO>;
+
+<VARIAVEIS>::= int id <ATRIBUICAO>;
+
+<OPERADORESARITMETICO>::= "+" <VALOREXPRESSAO>
+	|"-"<VALOREXPRESSAO>
+	|"*"<VALOREXPRESSAO>
+	|"/"<VALOREXPRESSAO>
+	|î;
+
+
+<ESCREVA>::= escreva "("id")";
+<LEIA>::= leia "("id")";
+
+<MISTO>::= id | numero;
+
+<OPERADORESLOGICO>::= "=" 
+	| ">" ;
+
+<LOGICA>::= <MISTO> <OPERADORESLOGICO> <MISTO>;
+
+<CONDICIONAL>::= <SE> <ENTAO> <SENAO> <FIMSE>;
+
+<SE>::= se"("<LOGICA>")";
+<ENTAO>::= entao <LIST_CODIGO>;
+<SENAO>::= senao <LIST_CODIGO> | î;
+<FIMSE>::= fimse;
+
+<FACA>::= faca "("<MISTO> <OPERADORESARITMETICO>")";
+<ENQUANTO>::= enquanto"("<LOGICA>")";
+
+
+
+<REPETICAO>::= <ENQUANTO> <FACA>;
+
+
+
+------------------------------vin
+
+<PROGRAMA>::= programInitial";" <BLOCO> programFinish";";
+<BLOCO>::= <CORPOPROGRAMA>";" <BLOCO> | î;
+
+<CORPOPROGRAMA>::= <VARIAVEIS> 
+    |<ESCREVER> 
+    |<LER> 
+    |<CONDICIONAL>
+    |<REPETICAO>
+    |<EXPRESSAOMAT>;
+
+// Tem expressao ou numero pq pode ser qualquer um dos dois
+<ATRIBUICAO>::= "=" <VALOREXPRESSAO> |numero | î; 
+
+
+<VALOREXPRESSAO>::= numero <OPERADORESMAT> 
+        | id <OPERADORESMAT>
+        |"(" <VALOREXPRESSAO> ")"<OPERADORESMAT>; 
+
+<VARIAVEIS>::= varInt id <ATRIBUICAO>;
+
+<EXPRESSAOMAT>::= id <ATRIBUICAO>;
+ 
+<OPERADORESMAT>::= "+" <VALOREXPRESSAO>
+     | "-" <VALOREXPRESSAO>
+     | "*" <VALOREXPRESSAO>
+     | "/" <VALOREXPRESSAO>
+    //TINHA DADO ERRO PQ PRECISAVA ESTAR LA EM CIMA |"(" <VALOREXPRESSAO> ")" <OPERADORESMAT>
+     | î;
+
+<ESCREVER>::= escrever "(" id ")";
+<LER>::=  ler "("id")";
+
+<CONDICIONAL>::= <SE> <ENTAO> <SENAO> <FIMSE>;
+
+<SE>::= se "("<EXPRESSION_LOGICA> ")";
+<ENTAO>::= entao <BLOCO>;
+<LETRANUMBER>::= id | numero;
+<OPERADORLOGICO>::= "==" | ">";
+<EXPRESSION_LOGICA>::= <LETRANUMBER> <OPERADORLOGICO> <LETRANUMBER>;
+<SENAO>::= senao <BLOCO> | î;
+<FIMSE>::= fimse;
+
+<REPETICAO>::= <DO> <BLOCO> <WHILE> "("<EXPRESSION_LOGICA>")";
+<DO>::= repita;
+<WHILE>::=enquanto;
+NAO TERMINAIS
+<VIN>
+<BLOCO>
+<CORPOPROGRAMA>
+<ESCREVER>
+<LER>
+<ATRIBUICAO>
+<VALOR>
+<VALOREXPRESSAO>
+<VARIAVEIS>
+<CONDICIONAL>
+<REPETICAO>
+<SE>
+<LETRANUMBER>
+<OPERADORLOGICO>
+<EXPRESSION_LOGICA>
+<EXPRESSAOMAT>
+<OPERADORESMAT>
+<ENTAO>
+<SENAO>
+<FIMSE>
+<DO>
+<WHILE>

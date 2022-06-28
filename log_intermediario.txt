@@ -1,0 +1,15 @@
+Declarado variavel cont
+Declarado variavel a
+Declarado variavel b
+Comando de leitura da variavel cont 
+Comando de escrita da variavel cont
+Atribuido a a a expressao   69
+ Atribuido a b a expressao   26
+ Comando condicional `se` reconhecido
+ Comando de escrita da variavel a
+Comando condicional `senao` reconhecido
+ Comando de repeticao `enquanto` reconhecido
+ Comando de repeticao `faca` reconhecido
+ Comando de escrita da variavel b
+Comando fim de condicional `fimse` reconhecido
+ 
