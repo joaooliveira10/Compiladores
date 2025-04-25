@@ -109,7 +109,7 @@ def log_tudo(args, name):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='Compilador VIN',description=" Compilador em Fase de Construção")
+    parser = argparse.ArgumentParser(prog='Compilador JARO',description=" Compilador em Fase de Construção")
     parser.add_argument('-ls', '--ls', help="Mostra o log do analisador sintático")
     parser.add_argument('-tudo', '--tudo',  nargs=2, help="Mostra todas as listagens do Compilador")
     parser.add_argument('-lt', '--lt', help="Mostra a lista de tokens do analisador lexico")

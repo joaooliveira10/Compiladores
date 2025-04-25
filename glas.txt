@@ -184,7 +184,7 @@ faca= id: "faca"	     //do
 
 
 
-------------------------------vin
+------------------------------jaro
 
 <PROGRAMA>::= programInitial";" <BLOCO> programFinish";";
 <BLOCO>::= <CORPOPROGRAMA>";" <BLOCO> | î;
@@ -232,7 +232,7 @@ faca= id: "faca"	     //do
 <DO>::= repita;
 <WHILE>::=enquanto;
 NAO TERMINAIS
-<VIN>
+<JARO>
 <BLOCO>
 <CORPOPROGRAMA>
 <ESCREVER>
